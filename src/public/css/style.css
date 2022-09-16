@@ -63,7 +63,21 @@ tr:hover {
     display: block;
 }
 
-#btn-submit {
+.create-user-container .btn-submit {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.update-user-container {
+    padding: 15px;
+    text-align: center;
+}
+
+.update-user-container label {
+    display: block;
+}
+
+.update-user-container .btn-save {
     margin-top: 15px;
     cursor: pointer;
 }

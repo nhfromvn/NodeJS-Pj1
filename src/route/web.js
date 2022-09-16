@@ -5,6 +5,10 @@ let router = express.Router();
 const initWebRoute = (app) => {
     router.get('/', homeController.getHomepage);
     router.get('/detail/user/:id', homeController.getDetailPage)
+    router.post('/create-new-user', homeController.createNewUser)
+    router.post('/deleteUser', homeController.deleteUser)
+    router.get('/getPageUpdate/:id', homeController.getPageUpdate)
+    router.post('/updateUser', homeController.updateUser)
     router.get('/about', (req, res) => {
         res.send(`Um minh la Nam Hoang ha :3`)
     })

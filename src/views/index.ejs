@@ -41,38 +41,45 @@
                     </td>
                     <td>
                         <a href="/detail/user/<%= dataUser[i].id %>"><button type="button">Detail</button></a>
-                        <button type="button">Edit</button>
-                        <button type="button">Delte</button>
+                        <form action="/getPageUpdate/<%= dataUser[i].id %>" method="GET">
+                            <input type="text" hidden value="<%= dataUser[i].id %>" />
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="/deleteUser" method="POST">
+                            <input type="text" hidden value="<%= dataUser[i].id %>" name="userId" />
+                            <button type="submit">Delte</button>
+                        </form>
                     </td>
                 </tr>
                 <% } %>
         </tbody>
     </table>
-    <div class="create-user-container">
-        <div>
-            <h4>Create new user:</h4>
+    <form action="/create-new-user" method="POST">
+        <div class="create-user-container">
+            <div>
+                <h4>Create new user:</h4>
+            </div>
+            <div>
+                <label>First Name</label>
+                <input type="text" name="firstName" />
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="lastName" />
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" />
+            </div>
+            <div>
+                <label>Phone</label>
+                <input type="text" name="phone" />
+            </div>
+            <div>
+                <button class="btn-submit" type="submit">Submit</button>
+            </div>
         </div>
-        <div>
-            <label>First Name</label>
-            <input type="text" />
-        </div>
-        <div>
-            <label>Last Name</label>
-            <input type="text" />
-        </div>
-        <div>
-            <label>Email</label>
-            <input type="email" />
-        </div>
-        <div>
-            <label>Phone</label>
-            <input type="text" />
-        </div>
-        <div>
-            <button id="btn-submit" type="submit">Submit</button>
-        </div>
-    </div>
-
+    </form>
 </body>
 
 </html>
