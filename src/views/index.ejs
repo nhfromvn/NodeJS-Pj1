@@ -9,9 +9,70 @@
 </head>
 
 <body>
-    <h1>hello world from ejs</h1>
-    <%= dataUser %>
-        <image src="/images/299994496_5143818442413727_4697606139341545825_n.jpg" />
+    <h1>My app</h1>
+    <ul>
+
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+    <h2>List data user</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i < dataUser.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= dataUser[i].id %>
+                    </td>
+                    <td>
+                        <%= dataUser[i].firstName %>
+                    </td>
+                    <td>
+                        <%= dataUser[i].lastName %>
+                    </td>
+                    <td>
+                        <a href="/detail/user/<%= dataUser[i].id %>"><button type="button">Detail</button></a>
+                        <button type="button">Edit</button>
+                        <button type="button">Delte</button>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+    <div class="create-user-container">
+        <div>
+            <h4>Create new user:</h4>
+        </div>
+        <div>
+            <label>First Name</label>
+            <input type="text" />
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" />
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="email" />
+        </div>
+        <div>
+            <label>Phone</label>
+            <input type="text" />
+        </div>
+        <div>
+            <button id="btn-submit" type="submit">Submit</button>
+        </div>
+    </div>
+
 </body>
 
 </html>

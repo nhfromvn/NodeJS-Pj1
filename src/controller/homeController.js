@@ -1,31 +1,15 @@
-import { Router } from 'express';
-import connection from '../config/connectDB'
-let getHomepage = (req, res) => {
-    //logic
-    let data = [];
-    connection.query(
-        'SELECT * FROM `user`',
-        function (err, results, fields) {
-            console.log('>>>check mysql')
-            console.log(results); // results contains rows returned by server
-            results.map((row) => {
-                data.push({
-                    id: row.id,
-                    firstName: row.firstName,
-                    lastName: row.lastName,
-                    email: row.email,
-                    phone: row.phone
+import pool from '../config/connectDB'
+let getHomepage = async (req, res) => {
 
-                })
-            });
-            console.log('>>>check data:', data)
-            return res.render('index.ejs', { dataUser: JSON.stringify(data) })
-
-        })
-
+    const [rows, fields] = await pool.execute('SELECT * FROM `user`');
+    return res.render('index.ejs', { dataUser: rows })
+}
+let getDetailPage = async (req, res) => {
+    let id = req.params.id;
+    let user = await pool.execute(`SELECT * from  user where id= ?`, [id])
+    return res.send(JSON.stringify(user[0]))
 }
 
-
 module.exports = {
-    getHomepage
+    getHomepage, getDetailPage
 }

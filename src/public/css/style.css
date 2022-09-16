@@ -4,9 +4,66 @@ h1 {
     text-align: center;
 }
 
-img {
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #04AA6D;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: rgb(135, 135, 134);
+}
+
+.create-user-container {
+    padding: 15px;
+    text-align: center;
+}
+
+.create-user-container label {
+    display: block;
+}
+
+#btn-submit {
+    margin-top: 15px;
+    cursor: pointer;
 }
